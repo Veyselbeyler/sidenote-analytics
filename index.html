@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SideNote Analytics</title>
+<meta name="description" content="GA4 numbers for the page you are on, in a Chrome side panel. Four cards, a trend line you can hover, and a quiz about your own page.">
+<link rel="icon" href="img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="SideNote Analytics home">
+      <svg class="mark" viewBox="0 0 16 16" aria-hidden="true">
+        <rect width="16" height="16" rx="3.5" fill="var(--ink)"></rect>
+        <rect x="9.5" y="3" width="4" height="10" rx="0.75" fill="var(--hl-alive)"></rect>
+      </svg>
+      <span>SideNote <span class="brand-soft">Analytics</span></span>
+    </a>
+    <nav class="links" aria-label="Sections">
+      <a href="#cards">Cards</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#private">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">A Chrome side panel for Google Analytics 4</p>
+        <h1>
+          <span class="line quiet">You are on the page.</span>
+          <span class="line">Its numbers should be <span class="hl c-alive">right here.</span></span>
+        </h1>
+        <p class="lede">Click the icon on any page of your site and SideNote Analytics shows how that page is doing: views, visitors, where they come from, and how it compares with the period before. No reports to build, no filters, no property to pick.</p>
+        <div class="cta">
+          <span class="btn primary is-soon" aria-disabled="true">Coming soon to the Chrome Web Store</span>
+          <a class="btn ghost" href="#cards">See what it shows</a>
+        </div>
+        <p class="note">Free. Read-only. Your data stays between Google and your browser.</p>
+      </div>
+      <figure class="shot tall">
+        <img src="img/panel-summary.png" width="720" height="1780" alt="The SideNote Analytics panel for a pricing page: 2,600 views, up 30% on the previous 28 days, with a trend line, time per view against the site average, a channel ring and a device ring.">
+      </figure>
+    </div>
+  </section>
+
+  <section class="block" id="cards">
+    <div class="wrap split">
+      <div class="copy">
+        <p class="eyebrow">Four cards, your choice</p>
+        <h2>The four numbers you care about, for every page.</h2>
+        <p class="intro">Pick any four of sixteen metrics. The menu shows how each one moved, so you can spot what changed before you even choose. Your picks follow you to every page and every Chrome you sign in to.</p>
+        <ul class="groups">
+          <li class="c-alive"><b>Traffic</b><span>Views, users, sessions, new users</span></li>
+          <li class="c-good"><b>Engagement</b><span>Time per view, engagement rate, bounce rate, views per visit</span></li>
+          <li class="c-read"><b>Where they come from</b><span>Channels, referring sites, organic search</span></li>
+          <li class="c-measure"><b>Who they are</b><span>Devices, countries, new vs returning</span></li>
+          <li class="c-change"><b>Results</b><span>Key events, share of the site, entry share</span></li>
+        </ul>
+      </div>
+      <figure class="shot">
+        <img src="img/panel-picker.png" width="720" height="1500" alt="The metric menu open in dark mode, grouped into Traffic and Engagement, each metric with a small change badge such as +30% or −5 pts.">
+      </figure>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap split reverse">
+      <div class="copy">
+        <p class="eyebrow">Yesterday, 7 days or 28 days</p>
+        <h2>Run your cursor along the line.</h2>
+        <p class="intro">Every card has a trend line for the period and the one before it. Hover anywhere over it and the big number turns into that day's figure, like a stock chart. Move away and it comes back.</p>
+        <dl class="ranges">
+          <div><dt>Yesterday</dt><dd>against the day before, with a week of trend</dd></div>
+          <div><dt>7 days</dt><dd>against the 7 days before</dd></div>
+          <div><dt>28 days</dt><dd>against the 28 days before</dd></div>
+        </dl>
+      </div>
+      <figure class="shot">
+        <img src="img/panel-hover.png" width="720" height="545" alt="The views card while hovering: the figure reads 52 and a date pill says Sat, Oct 3, with a marker on the line at that day.">
+      </figure>
+    </div>
+  </section>
+
+  <section class="block" id="quiz">
+    <div class="wrap split">
+      <div class="copy">
+        <p class="eyebrow">Know your page?</p>
+        <h2>Five questions about your own page. <span class="hl c-good">How well do you know it?</span></h2>
+        <p class="intro">Mostly mobile or desktop? Did views go up or down? Where do most visitors come from? The quiz draws five questions from the page's real numbers and shows the answer as a chart. Your last score is kept for each page.</p>
+        <p class="intro">"Challenge a friend" copies a line with your score. It never mentions your site.</p>
+      </div>
+      <figure class="shot">
+        <img src="img/panel-quiz.png" width="720" height="1520" alt="A quiz question: compared to the previous 7 days, views on this page went up, stayed about the same or went down. The answer Went up is marked right, with a chart showing +30%.">
+      </figure>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow">Honest numbers</p>
+      <h2>When the data is thin, the panel says so.</h2>
+      <ul class="points">
+        <li><b>Missing is never zero.</b><span>An empty report shows as "no data", not as 0 views.</span></li>
+        <li><b>No percentages on tiny bases.</b><span>Going from 3 visits to 9 is not shown as +200%.</span></li>
+        <li><b>Sampling is flagged.</b><span>When GA4 samples or groups rows into "(other)", the figure is marked as an estimate.</span></li>
+        <li><b>Guesses are labelled.</b><span>The panel finds your GA4 property from the page's address. If it had to guess, it says so, and you can pick another.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="private">
+    <div class="wrap">
+      <p class="eyebrow">Private by design</p>
+      <h2>Read-only. Your data stays between Google and this browser. <span class="hl c-read">Nowhere else.</span></h2>
+      <div class="facts">
+        <div class="fact"><span class="big">0</span><p>Servers. The panel talks to Google's Analytics APIs directly from your browser.</p></div>
+        <div class="fact"><span class="big">0</span><p>Trackers. No analytics, ads or tracking code of its own.</p></div>
+        <div class="fact"><span class="big">1</span><p>Permission to Google: read-only Analytics access. It cannot change anything in your account.</p></div>
+        <div class="fact"><span class="big">0</span><p>Settings to fill in. It matches the page's address to your GA4 property by itself.</p></div>
+      </div>
+      <p class="more"><a href="privacy.html">Read the privacy policy</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="sign">SideNote <span class="brand-soft">Analytics</span></span>
+    <p>Designed and built by Veysel. Not affiliated with Google. <a href="privacy.html">Privacy</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
