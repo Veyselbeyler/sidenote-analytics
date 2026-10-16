@@ -36,15 +36,18 @@
           <span class="line quiet">Your page. Your data.</span>
           <span class="line"><span class="hl c-alive">Side by side.</span></span>
         </h1>
-        <p class="lede">SideNote Analytics brings the page's GA4 data into view—views, users, traffic sources and more, compared with the previous period. All beside the page you're already on.</p>
+        <p class="lede">SideNote Analytics brings the page's GA4 data into view—sessions, users, traffic sources and more, compared with the previous period. All beside the page you're already on.</p>
         <div class="cta">
           <span class="btn primary is-soon" aria-disabled="true">Coming soon to the Chrome Web Store</span>
           <a class="btn ghost" href="#how">See how it works</a>
         </div>
         <p class="note">Free. Read-only. No servers or tracking.</p>
       </div>
-      <figure class="shot tall">
-        <img src="img/panel-summary.png" width="720" height="1780" alt="The SideNote Analytics panel for a pricing page: 2,600 views, up 30% on the previous 28 days, with a trend line, time per view against the site average, a channel ring and a device ring.">
+      <figure class="browser">
+        <picture>
+          <source srcset="img/hero-browser.webp" type="image/webp">
+          <img src="img/hero-browser.png" width="1812" height="1152" alt="A Chrome window showing a pricing page, with the SideNote Analytics side panel open beside it: 2,600 views on /pricing, up 30% on the previous 28 days.">
+        </picture>
       </figure>
     </div>
   </section>
@@ -82,17 +85,19 @@
     </div>
   </section>
 
-  <section class="block" id="quiz">
+  <section class="block quiz-block" id="quiz">
+    <div class="qmarks" aria-hidden="true"><span>?</span><span>?</span><span>?</span><span>?</span><span>?</span><span>?</span></div>
     <div class="wrap split reverse">
       <div class="copy">
-        <p class="eyebrow">Know your page?</p>
+        <p class="eyebrow">Quiz · Know your page?</p>
         <h2>How well do you know <span class="hl c-good">your own numbers?</span></h2>
         <p class="intro">Do most visitors use mobile or desktop? Is traffic up or down? Does organic search bring more visitors than direct?</p>
         <p class="intro">Test your instincts with five questions based on your page's actual data. Each answer comes with a chart, so you can see how your guess compares.</p>
         <p class="intro">Beat your previous score or challenge a teammate. The shared message never includes your site's name.</p>
+        <div class="qtags"><span class="c-alive">5 questions</span><span class="c-read">Your real data</span><span class="c-change">Beat your score</span></div>
       </div>
       <figure class="shot">
-        <img src="img/panel-quiz.png" width="720" height="1520" alt="A quiz question: compared to the previous 7 days, views on this page went up, stayed about the same or went down. The answer Went up is marked right, with a chart showing +30%.">
+        <img src="img/panel-quiz.png" width="720" height="1520" alt="The Quiz tab: question 1 of 5 asks what share of visits in the last 7 days really engaged with this page, with three answers to choose from.">
       </figure>
     </div>
   </section>
@@ -132,7 +137,7 @@
       <div class="faq">
         <details open>
           <summary>Can SideNote access my Analytics data?</summary>
-          <p>The extension needs read-only access to display your reports. That access is used within your browser. No Analytics data is sent to SideNote's developer or to an external server.</p>
+          <p>The extension needs read-only access to display your reports. That access is used only within your browser. No Analytics data is sent to any external server.</p>
         </details>
         <details>
           <summary>Why does Google ask for permission to see my Analytics data?</summary>
@@ -148,7 +153,7 @@
         </details>
         <details>
           <summary>Why is it free?</summary>
-          <p>SideNote Analytics is a free portfolio project. There are no paid plans, trials or ads.</p>
+          <p>SideNote Analytics runs entirely in your browser, with no servers or infrastructure behind it. That keeps it free to use, with no paid plans, trials or ads.</p>
         </details>
       </div>
     </div>
