@@ -46,7 +46,9 @@
     var a = e.target.closest('a[href]');
     if (!a) return;
     var href = a.getAttribute('href');
-    if (a.dataset.track) {
+    if (a.closest('nav.links')) {
+      dataLayer.push({ event: 'nav_click', link_text: a.textContent.trim(), link_url: a.href });
+    } else if (a.dataset.track) {
       dataLayer.push({ event: a.dataset.track, link_text: a.textContent.trim(), link_url: a.href });
     } else if (/^https?:/.test(href) && a.host !== location.host) {
       dataLayer.push({ event: 'outbound_click', link_text: a.textContent.trim(), link_url: a.href });
