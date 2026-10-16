@@ -20,9 +20,9 @@
       <span>SideNote <span class="brand-soft">Analytics</span></span>
     </a>
     <nav class="links" aria-label="Sections">
-      <a href="#cards">Features</a>
+      <a href="#how">How it works</a>
       <a href="#quiz">Quiz</a>
-      <a href="privacy.html">Privacy</a>
+      <a href="#faq">FAQ</a>
     </nav>
   </div>
 </header>
@@ -31,21 +31,33 @@
   <section class="hero">
     <div class="wrap">
       <div class="hero-copy">
-        <p class="eyebrow">A Chrome side panel for Google Analytics 4</p>
+        <p class="eyebrow">Google Analytics 4, right in Chrome's side panel</p>
         <h1>
           <span class="line quiet">Open a page.</span>
           <span class="line">See its GA4 numbers <span class="hl c-alive">beside it.</span></span>
         </h1>
-        <p class="lede">One click on the toolbar icon shows views, users, channels and devices for that exact URL, compared with the period before. No Explore reports, no page-path filters, no property dropdown.</p>
+        <p class="lede">Looking up a single page in GA4 takes an Explore report, a filter and a lot of clicking. SideNote Analytics does it in one click: views, users, traffic sources and devices for the page you're on, compared with the previous period.</p>
         <div class="cta">
           <span class="btn primary is-soon" aria-disabled="true">Coming soon to the Chrome Web Store</span>
-          <a class="btn ghost" href="#cards">See what it shows</a>
+          <a class="btn ghost" href="#how">How it works</a>
         </div>
-        <p class="note">Free. Read-only. Your data stays between Google and your browser.</p>
+        <p class="note">Completely free. Read-only. No servers, no tracking.</p>
       </div>
       <figure class="shot tall">
         <img src="img/panel-summary.png" width="720" height="1780" alt="The SideNote Analytics panel for a pricing page: 2,600 views, up 30% on the previous 28 days, with a trend line, time per view against the site average, a channel ring and a device ring.">
       </figure>
+    </div>
+  </section>
+
+  <section class="block" id="how">
+    <div class="wrap">
+      <p class="eyebrow">How it works</p>
+      <h2>Three steps, <span class="hl c-alive">once.</span></h2>
+      <ol class="steps">
+        <li><span class="num c-alive">1</span><b>Add it to Chrome</b><p>Install it from the Chrome Web Store and pin it to your toolbar.</p></li>
+        <li><span class="num c-read">2</span><b>Sign in with Google</b><p>Use the Google account you use for GA4. It can only read your data, and you can disconnect it any time.</p></li>
+        <li><span class="num c-good">3</span><b>Open your site and click the icon</b><p>SideNote works out which GA4 property the page belongs to and shows its numbers. No setup needed.</p></li>
+      </ol>
     </div>
   </section>
 
@@ -54,7 +66,7 @@
       <div class="copy">
         <p class="eyebrow">4 of 16 metrics</p>
         <h2>Bounce rate on the landing page. Key events on pricing.</h2>
-        <p class="intro">Each page gets the four numbers that matter to you. The menu shows every metric's change, like +30% or −5 pts, before you pick, and your four follow you to every page you open.</p>
+        <p class="intro">Choose the four numbers you care about. The menu shows how each metric changed, like +30% or −5 pts, before you pick, and your choice follows you to every page.</p>
         <ul class="groups">
           <li class="c-alive"><b>Traffic</b><span>Views, users, sessions, new users</span></li>
           <li class="c-good"><b>Engagement</b><span>Time per view, engagement rate, bounce rate, views per visit</span></li>
@@ -69,24 +81,10 @@
     </div>
   </section>
 
-  <section class="block">
+  <section class="block" id="quiz">
     <div class="wrap split reverse">
       <div class="copy">
-        <p class="eyebrow">A line you can read like a stock chart</p>
-        <h2>Point at Tuesday. See Tuesday.</h2>
-        <p class="intro">Hover the trend line and the big figure turns into that day's count, with the date beside it. Move away and it goes back to the total.</p>
-        <div class="chips"><span>Yesterday <b>vs the day before</b></span><span>7 days <b>vs the 7 before</b></span><span>28 days <b>vs the 28 before</b></span></div>
-      </div>
-      <figure class="shot">
-        <img src="img/panel-hover.png" width="720" height="545" alt="The views card while hovering: the figure reads 52 and a date pill says Sat, Oct 3, with a marker on the line at that day.">
-      </figure>
-    </div>
-  </section>
-
-  <section class="block" id="quiz">
-    <div class="wrap split">
-      <div class="copy">
-        <p class="eyebrow">Know your page?</p>
+        <p class="eyebrow">Know your page? · the fun part</p>
         <h2>Do you really know your pricing page? <span class="hl c-good">Take the quiz.</span></h2>
         <p class="intro">Mobile or desktop? Up or down this week? Organic search or direct? Five questions from the page's real numbers, each answered with a chart. Beat your last score, or send the challenge to a teammate. The share text never names your site.</p>
       </div>
@@ -96,17 +94,61 @@
     </div>
   </section>
 
+  <section class="block">
+    <div class="wrap split">
+      <div class="copy">
+        <p class="eyebrow">A line you can read like a stock chart</p>
+        <h2>Point at Tuesday. See Tuesday.</h2>
+        <p class="intro">Hover over the chart to see the number for any single day. Move away and it goes back to the total.</p>
+        <div class="chips"><span>Yesterday <b>vs the day before</b></span><span>7 days <b>vs the 7 before</b></span><span>28 days <b>vs the 28 before</b></span></div>
+      </div>
+      <figure class="shot">
+        <img src="img/panel-hover.png" width="720" height="545" alt="The views card while hovering: the figure reads 52 and a date pill says Sat, Oct 3, with a marker on the line at that day.">
+      </figure>
+    </div>
+  </section>
+
+
   <section class="block" id="private">
     <div class="wrap">
       <p class="eyebrow">Privacy</p>
       <h2>Read-only. Your data stays between Google and this browser. <span class="hl c-read">Nowhere else.</span></h2>
       <div class="facts">
-        <div class="fact"><span class="big">0</span><p>Servers. The panel talks to Google's Analytics APIs directly from your browser.</p></div>
+        <div class="fact"><span class="big">0</span><p>Servers. Your browser talks to Google directly.</p></div>
         <div class="fact"><span class="big">0</span><p>Trackers. No analytics, ads or tracking code of its own.</p></div>
-        <div class="fact"><span class="big">1</span><p>Permission to Google: read-only Analytics access. It cannot change anything in your account.</p></div>
-        <div class="fact"><span class="big">0</span><p>Settings to fill in. It matches the page's address to your GA4 property by itself.</p></div>
+        <div class="fact"><span class="big">1</span><p>Permission: read-only access to Analytics. It can't change anything in your account.</p></div>
+        <div class="fact"><span class="big">0</span><p>Settings. It works out which GA4 property your page belongs to.</p></div>
       </div>
       <p class="more"><a href="privacy.html">Read the privacy policy</a></p>
+    </div>
+  </section>
+
+  <section class="block" id="faq">
+    <div class="wrap">
+      <p class="eyebrow">Questions</p>
+      <h2>Before you sign in</h2>
+      <div class="faq">
+        <details open>
+          <summary>Can you see my Analytics data?</summary>
+          <p>No. SideNote has no server. Your browser gets the numbers straight from Google, and they never leave it.</p>
+        </details>
+        <details>
+          <summary>Google's sign-in screen says it can "see your Google Analytics data". What does that mean?</summary>
+          <p>That's Google's standard wording for read-only access. SideNote can read your reports, but it can't change or delete anything. You can remove its access any time at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
+        </details>
+        <details>
+          <summary>Does it work on any website?</summary>
+          <p>It works on any site you can see in your own GA4. On other sites, the panel simply tells you there's no data for it.</p>
+        </details>
+        <details>
+          <summary>What if my site has several GA4 properties or subdomains?</summary>
+          <p>SideNote picks the right one for you. If it isn't sure, it tells you, and you can choose another from the list.</p>
+        </details>
+        <details>
+          <summary>Why is it free?</summary>
+          <p>There's no server to pay for, so there's nothing to charge for. No plans, no trials, no ads.</p>
+        </details>
+      </div>
     </div>
   </section>
 </main>
