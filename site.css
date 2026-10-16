@@ -76,12 +76,12 @@ nav.links a.go:hover { background: var(--accent); color: var(--accent-ink); }
 
 .hero { padding-block: 40px 56px; }
 .hero { overflow: hidden; }
-.hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 32px; align-items: center; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; }
 .hero-copy { position: relative; z-index: 1; }
-/* The window bleeds off the right edge and fades in from the left, so the
-   page reads first and the panel lands last. */
-.browser { margin: 0 calc(-1 * max(24px, (100vw - 1040px) / 2 + 24px)) 0 -40px; }
-.browser img { width: 100%; min-width: 620px;
+/* The window fades in from the left, so the page reads first and the panel
+   lands last. */
+.browser { margin: 0 -24px 0 -40px; }
+.browser img { width: 100%;
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.25) 18%, #000 55%);
   mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.25) 18%, #000 55%); }
 @media (max-width: 900px) {
