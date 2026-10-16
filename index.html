@@ -2,6 +2,19 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500});
+try { if (localStorage.getItem('sn-consent') === 'granted') gtag('consent', 'update', {analytics_storage: 'granted'}); } catch (e) {}
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+<!-- End Google Tag Manager -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SideNote Analytics</title>
 <meta name="description" content="GA4 numbers for the page you are on, in a Chrome side panel. Four cards, a trend line you can hover, and a quiz about your own page.">
@@ -12,6 +25,9 @@
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <header class="top">
   <div class="wrap">
@@ -39,7 +55,7 @@
         <p class="lede">SideNote Analytics brings the page's GA4 data into view—sessions, users, traffic sources and more, compared with the previous period. All beside the page you're already on.</p>
         <div class="cta">
           <span class="btn primary is-soon" aria-disabled="true">Coming soon to the Chrome Web Store</span>
-          <a class="btn ghost" href="#how">See how it works</a>
+          <a class="btn ghost" href="#how" data-track="cta_how_it_works">See how it works</a>
         </div>
         <p class="note">Free. Read-only. No servers or tracking.</p>
       </div>
@@ -124,10 +140,10 @@
       <p class="intro">SideNote runs in your browser and connects directly to Google. Your Analytics data is never sent to SideNote or any third party.</p>
       <div class="facts">
         <div class="fact"><b>No servers</b><p>Data goes directly from Google to your browser.</p></div>
-        <div class="fact"><b>No tracking</b><p>No ads, usage analytics or tracking code.</p></div>
+        <div class="fact"><b>No tracking</b><p>The extension has no ads, usage analytics or tracking code.</p></div>
         <div class="fact"><b>Read-only access</b><p>SideNote can read your Analytics reports. It cannot change or delete anything in your Analytics account.</p></div>
       </div>
-      <p class="more"><a href="privacy.html">Read the privacy policy</a></p>
+      <p class="more"><a href="privacy.html" data-track="privacy_click">Read the privacy policy</a></p>
     </div>
   </section>
 
@@ -164,9 +180,10 @@
 <footer>
   <div class="wrap">
     <span class="sign">SideNote <span class="brand-soft">Analytics</span></span>
-    <p>Questions or feedback? <a href="https://www.linkedin.com/in/veyselm" rel="noopener">Reach out on LinkedIn</a>. Not affiliated with Google. <a href="privacy.html">Privacy</a></p>
+    <p>Questions or feedback? <a href="https://www.linkedin.com/in/veyselm" rel="noopener">Reach out on LinkedIn</a>. Not affiliated with Google. <a href="privacy.html">Privacy</a> · <button type="button" class="link-btn" data-cookie-settings>Cookie settings</button></p>
   </div>
 </footer>
 
+<script src="consent.js"></script>
 </body>
 </html>
