@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500});
+try { if (localStorage.getItem('sn-consent') === 'granted') gtag('consent', 'update', {analytics_storage: 'granted'}); } catch (e) {}
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KLZKFRTD');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Support · SideNote Analytics</title>
+<meta name="description" content="Help with SideNote Analytics: signing in, finding the right GA4 property, and how to get in touch.">
+<link rel="canonical" href="https://sidenoteanalytics.com/support.html">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="site.css?v=2">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLZKFRTD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="SideNote Analytics home">
+      <img class="mark" src="img/logo.svg" alt="" width="42" height="42">
+      <span>SideNote <span class="brand-soft">Analytics</span></span>
+    </a>
+    <nav class="links" aria-label="Sections"><a href="./">Home</a></nav>
+  </div>
+</header>
+
+<main class="wrap doc">
+  <h1>Support</h1>
+  <p>Have a question, found a bug or have an idea for SideNote Analytics? Email <a href="mailto:hello@sidenoteanalytics.com">hello@sidenoteanalytics.com</a>. Messages are usually answered within two working days.</p>
+
+  <h2>Common questions</h2>
+
+  <h3>The panel asks me to sign in every time</h3>
+  <p>SideNote uses the Google account Chrome is signed in to. If you use more than one Chrome profile, open the panel in the profile whose Google account has access to your GA4 property.</p>
+
+  <h3>"No property in your account measures this site"</h3>
+  <p>SideNote matches the page's address with the web streams of the GA4 properties your account can see. Check that your Google account has at least Viewer access to the property, and that the property's web stream uses the same domain as the page.</p>
+
+  <h3>It picked the wrong property</h3>
+  <p>When a match is a guess, for example a subdomain, the panel says so. Use the property menu at the top of the panel to choose another one. SideNote remembers your choice for that site.</p>
+
+  <h3>The numbers differ from GA4 reports</h3>
+  <p>SideNote reads the same GA4 Data API that powers your reports, for the page path you are on. Small differences can come from date ranges, time zones or data thresholds that Google applies. When Google samples or withholds data, the panel marks the figure.</p>
+
+  <h3>How do I remove access?</h3>
+  <p>Remove the extension from Chrome, and revoke its access in your <a href="https://myaccount.google.com/permissions">Google Account permissions</a>. Nothing is stored anywhere else.</p>
+
+  <p class="more"><a href="privacy.html">Read the privacy policy</a></p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="sign">SideNote <span class="brand-soft">Analytics</span></span>
+    <p>Questions or feedback? <a href="https://www.linkedin.com/in/veyselm" rel="noopener">Reach out on LinkedIn</a>. Not affiliated with Google. <a href="support.html">Support</a> · <a href="privacy.html">Privacy</a> · <button type="button" class="link-btn" data-cookie-settings>Cookie settings</button></p>
+  </div>
+</footer>
+
+<script src="consent.js?v=4"></script>
+</body>
+</html>
