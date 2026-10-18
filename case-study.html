@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500});
+try { if (localStorage.getItem('sn-consent') === 'granted') gtag('consent', 'update', {analytics_storage: 'granted'}); } catch (e) {}
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KLZKFRTD');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Case study · SideNote Analytics</title>
+<meta name="description" content="How SideNote Analytics went from an internal click overlay to a GA4 side panel on the Chrome Web Store: product decisions, the GA4 API layer and the measurement plan.">
+<link rel="canonical" href="https://sidenoteanalytics.com/case-study.html">
+<meta property="og:image" content="https://sidenoteanalytics.com/img/og.png">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="site.css?v=3">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLZKFRTD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="SideNote Analytics home">
+      <img class="mark" src="img/logo.svg" alt="" width="42" height="42">
+      <span>SideNote <span class="brand-soft">Analytics</span></span>
+    </a>
+    <nav class="links" aria-label="Sections"><a href="./">Home</a></nav>
+  </div>
+</header>
+
+<main class="cs">
+  <header class="cs-hero wrap">
+    <p class="eyebrow">Case study</p>
+    <h1>From a click overlay to a <span class="hl c-alive">GA4 side panel</span></h1>
+    <p class="cs-lede">How I turned an internal tool for web managers into SideNote Analytics, a free Chrome extension that shows a page's Google Analytics 4 data beside the page itself. Product, data layer and measurement, end to end.</p>
+    <dl class="cs-meta">
+      <div><dt>Role</dt><dd>Product, analytics and build</dd></div>
+      <div><dt>Timeline</dt><dd>Aug – Oct 2026</dd></div>
+      <div><dt>Stack</dt><dd>GA4 Data &amp; Admin API, Chrome MV3, JavaScript, GTM</dd></div>
+      <div><dt>Status</dt><dd><a href="https://chromewebstore.google.com/detail/sidenote-analytics/bgmgjefpcplopncgohninfdddjmldfml?utm_source=sidenoteanalytics.com&amp;utm_medium=website&amp;utm_campaign=case_study" data-track="store_click" rel="noopener">Live on the Chrome Web Store</a></dd></div>
+    </dl>
+  </header>
+
+  <section class="cs-sec wrap">
+    <div class="cs-label"><span>01</span><h2>The problem</h2></div>
+    <div class="cs-body">
+      <p>Most questions about a website start on a specific page: is this landing page still working, where do its visitors come from, did last week's change help? GA4 can answer all of them, but not quickly. You open Explore or a report, add a page-path filter, pick a date range and a comparison, and repeat for the next page.</p>
+      <p>For web managers and content owners, who think in pages rather than reports, that friction means the data simply doesn't get checked.</p>
+    </div>
+  </section>
+
+  <section class="cs-sec wrap">
+    <div class="cs-label"><span>02</span><h2>Where the idea came from</h2></div>
+    <div class="cs-body">
+      <p>At work I lead GA4 for several education websites where every link and button is tagged. To make that data useful to our web managers, I built an internal Chrome extension that overlays GA4 click counts next to each element while they browse the site. Instead of opening a report, they saw the numbers on the page they were already editing.</p>
+      <p>SideNote Analytics generalizes that idea. It works for any site with a GA4 property, needs no setup or tagging changes, and covers the page as a whole rather than individual clicks.</p>
+    </div>
+  </section>
+
+  <section class="cs-sec wrap">
+    <div class="cs-label"><span>03</span><h2>What I built</h2></div>
+    <div class="cs-body">
+      <p>Click the icon on any page and a side panel opens with that page's numbers. SideNote finds the matching GA4 property on its own, shows four metric cards compared with the previous period, and lets you hover a trend line to read any single day.</p>
+      <div class="cs-shots">
+        <figure><img src="img/panel-picker.png" width="720" height="1040" alt="The metric picker, showing each metric's change before you choose it." loading="lazy"><figcaption>Pick 4 of 16 metrics. Each option shows its change before you choose it.</figcaption></figure>
+        <figure><img src="img/panel-hover.png" width="720" height="540" alt="Hovering the trend line shows a single day's value." loading="lazy"><figcaption>Hover the line to read one day, like a stock chart.</figcaption></figure>
+        <figure><img src="img/panel-quiz.png" width="720" height="1040" alt="The quiz tab asking whether views went up or down." loading="lazy"><figcaption>A five-question quiz built from the page's own data.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-sec wrap">
+    <div class="cs-label"><span>04</span><h2>Decisions that shaped it</h2></div>
+    <div class="cs-body">
+      <ol class="cs-decisions">
+        <li><b>Every number carries its comparison.</b> A figure on its own invites the wrong question. Each card compares the selected range with the same-length period before it, so the first thing you see is direction, not just size.</li>
+        <li><b>Four cards, your choice.</b> Sixteen metrics fit in the panel, but four fit in a glance. Users choose which four, and the choice follows their Chrome profile from page to page.</li>
+        <li><b>Honesty over neatness.</b> GA4 samples, applies thresholds and collapses rows into "(other)". SideNote reads those signals from the API response and marks affected figures. A missing report shows "no data", never a zero, and a percentage change on a tiny base isn't shown at all.</li>
+        <li><b>Read-only, and no server.</b> Requests go straight from the browser to Google with a read-only token. There is no backend to secure, pay for or explain in a privacy review, and no tracking code in the extension.</li>
+        <li><b>A quiz, to build the habit.</b> "Did views go up or down?" is a question people enjoy guessing. The quiz turns the same data into five quick questions with a chart for each answer, and a share line that never names the site.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="cs-sec wrap">
+    <div class="cs-label"><span>05</span><h2>Under the hood</h2></div>
+    <div class="cs-body">
+      <div class="cs-stats">
+        <div><b>2</b><span>API calls per panel open, batching 9 GA4 reports</span></div>
+        <div><b>191</b><span>automated tests on the data layer</span></div>
+        <div><b>0</b><span>runtime dependencies and servers</span></div>
+      </div>
+      <ul class="cs-list">
+        <li><b>Property matching.</b> The GA4 Admin API lists the user's properties and web streams. SideNote matches the page's host against them, labels subdomain or sibling matches as guesses, and caches the index for a week.</li>
+        <li><b>Report layout.</b> Two <code>batchRunReports</code> calls cover nine reports for the selected range and the period before it. The site-wide report is cached and shared between pages of the same site, and responses are cached for a few minutes so moving between tabs costs nothing.</li>
+        <li><b>A tested core.</b> All logic that turns API responses into cards and quiz questions lives in pure functions, and the test suite runs before every build.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cs-sec wrap">
+    <div class="cs-label"><span>06</span><h2>Launch</h2></div>
+    <div class="cs-body">
+      <p>Shipping meant work outside the code: a Google Cloud project and OAuth client tied to the store's extension ID, a privacy policy that matches the permissions, written justifications for each permission, and store assets. The listing was approved in a day. The site moved to its own domain with Search Console verification, a sitemap and structured data.</p>
+    </div>
+  </section>
+
+  <section class="cs-sec wrap">
+    <div class="cs-label"><span>07</span><h2>Measuring the product</h2></div>
+    <div class="cs-body">
+      <p>The extension itself collects nothing, by design. So measurement lives around it: on the website, in the store, and in the links that connect them.</p>
+      <ol class="cs-funnel" aria-label="Measured funnel">
+        <li><b>Share</b><span>Quiz share links carry UTM tags (extension / share)</span></li>
+        <li><b>Website</b><span>GA4 via GTM, Consent Mode v2, custom events</span></li>
+        <li><b>Store page</b><span>UTM-tagged store links, store_click key event</span></li>
+        <li><b>Install</b><span>Chrome Web Store analytics in GA4</span></li>
+      </ol>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Event</th><th>Fires when</th><th>Parameters</th></tr></thead>
+          <tbody>
+            <tr><td><code>store_click</code></td><td>Someone clicks through to the store (key event)</td><td>link_text, link_url</td></tr>
+            <tr><td><code>nav_click</code></td><td>A header link is used</td><td>link_text, link_url</td></tr>
+            <tr><td><code>faq_open</code></td><td>An FAQ question is opened</td><td>faq_question</td></tr>
+            <tr><td><code>outbound_click</code></td><td>A link to another site is clicked</td><td>link_text, link_url</td></tr>
+            <tr><td><code>consent_update</code></td><td>A visitor accepts or declines analytics cookies</td><td>consent_analytics</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Events are pushed to the dataLayer by the site and mapped in GTM with one regex trigger and one GA4 event tag. Analytics cookies wait for consent; until then GA4 receives cookieless signals only. GA4's built-in outbound-click and history-change tracking are switched off so nothing is counted twice.</p>
+    </div>
+  </section>
+
+  <section class="cs-sec wrap">
+    <div class="cs-label"><span>08</span><h2>What's next</h2></div>
+    <div class="cs-body">
+      <ul class="cs-list">
+        <li>Complete Google's OAuth verification, so the consent screen shows SideNote as a verified app.</li>
+        <li>Export the site's GA4 data to BigQuery and build a Looker Studio view of the full share-to-install funnel.</li>
+        <li>Collect feedback from the first users and decide which of the 16 metrics deserve a place by default.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cs-end wrap">
+    <p>Built by <b>Veysel Mehmetoglu</b>, marketing and web analytics analyst.</p>
+    <div class="cs-cta">
+      <a class="btn primary" href="https://chromewebstore.google.com/detail/sidenote-analytics/bgmgjefpcplopncgohninfdddjmldfml?utm_source=sidenoteanalytics.com&amp;utm_medium=website&amp;utm_campaign=case_study" data-track="store_click" rel="noopener">Try it in Chrome</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/veyselm" rel="noopener">Connect on LinkedIn</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="sign">SideNote <span class="brand-soft">Analytics</span></span>
+    <p>Questions or feedback? <a href="https://www.linkedin.com/in/veyselm" rel="noopener">Reach out on LinkedIn</a>. Not affiliated with Google. <a href="support.html">Support</a> · <a href="privacy.html">Privacy</a> · <button type="button" class="link-btn" data-cookie-settings>Cookie settings</button></p>
+  </div>
+</footer>
+
+<script src="consent.js?v=4"></script>
+</body>
+</html>
