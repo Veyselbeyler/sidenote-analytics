@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500});
+try { if (localStorage.getItem('sn-consent') === 'granted') gtag('consent', 'update', {analytics_storage: 'granted'}); } catch (e) {}
+dataLayer.push({content_group: 'Guides', page_type: 'guide'});
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KLZKFRTD');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How to see GA4 data for a single page · SideNote</title>
+<meta name="description" content="Three ways to see GA4 views, users, sessions and traffic sources for one page, and why some page metrics never add up to the site total.">
+<link rel="canonical" href="https://sidenoteanalytics.com/guides/how-to-see-ga4-data-for-a-single-page/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SideNote Analytics">
+<meta property="og:title" content="How to see GA4 data for a single page · SideNote">
+<meta property="og:description" content="Three ways to see GA4 views, users, sessions and traffic sources for one page, and why some page metrics never add up to the site total.">
+<meta property="og:url" content="https://sidenoteanalytics.com/guides/how-to-see-ga4-data-for-a-single-page/">
+<meta property="og:image" content="https://sidenoteanalytics.com/img/og.png">
+<meta property="article:published_time" content="2026-10-24">
+<meta property="article:modified_time" content="2026-10-24">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "How to see GA4 data for a single page",
+      "description": "Three ways to see GA4 views, users, sessions and traffic sources for one page, and why some page metrics never add up to the site total.",
+      "datePublished": "2026-10-24",
+      "dateModified": "2026-10-24",
+      "mainEntityOfPage": "https://sidenoteanalytics.com/guides/how-to-see-ga4-data-for-a-single-page/",
+      "image": "https://sidenoteanalytics.com/img/og.png",
+      "author": { "@type": "Person", "name": "Veysel Mehmetoglu", "url": "https://www.linkedin.com/in/veyselm" },
+      "publisher": { "@type": "Organization", "name": "SideNote Analytics", "url": "https://sidenoteanalytics.com/", "logo": "https://sidenoteanalytics.com/img/icon.png" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sidenoteanalytics.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://sidenoteanalytics.com/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "How to see GA4 data for a single page" }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/site.css?v=3">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLZKFRTD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="SideNote Analytics home">
+      <img class="mark" src="/img/logo.svg" alt="" width="42" height="42">
+      <span>SideNote <span class="brand-soft">Analytics</span></span>
+    </a>
+    <nav class="links" aria-label="Sections"><a href="/">Home</a><a href="/guides/">Guides</a></nav>
+  </div>
+</header>
+
+<main class="wrap doc guide">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/guides/">Guides</a></nav>
+  <article>
+    <h1>How to see GA4 data for a single page</h1>
+    <p class="updated">Updated <time datetime="2026-10-24">October 24, 2026</time> · 5 min read</p>
+
+    <div class="short">
+      <p><b>In short:</b> Use <b>Pages and screens</b> for views and engagement time, the <b>Landing page</b> report for sessions and traffic sources, and a free-form exploration for anything else. Users and sessions are not page metrics in the strict sense, so they never add up across pages.</p>
+    </div>
+
+    <p>To see GA4 data for a single page, open <b>Reports &gt; Engagement &gt; Pages and screens</b> and filter the table to that page's path, for example <code>/pricing</code>. You will get its views, active users, engagement time and key events for the selected date range. For sessions and traffic sources, use the <b>Landing page</b> report or a free-form exploration instead, because those numbers depend on how visitors arrived, not only on what they viewed.</p>
+    <p>This guide walks through all three options, explains which metrics belong to a page and which do not, and shows a quicker way to check a page while you are looking at it.</p>
+
+    <h2>Option 1: the Pages and screens report</h2>
+    <p>This is the fastest route, and it works in every GA4 property without any setup.</p>
+    <ol>
+      <li>In GA4, go to <b>Reports</b>, open <b>Engagement</b> and select <b>Pages and screens</b>.</li>
+      <li>Check that the first column shows <b>Page path and screen class</b>. If it shows page titles, use the dropdown above the column to switch. Paths are more reliable, because several pages can share a title.</li>
+      <li>Type the path into the search box above the table, such as <code>/pricing</code>. The search matches any path that contains the text, so <code>/pricing</code> also returns <code>/pricing/teams</code>.</li>
+      <li>Set the date range in the top right. Turn on <b>Compare</b> in the date picker to see the previous period next to the current one.</li>
+    </ol>
+    <p>The row for your page shows <b>Views</b>, <b>Active users</b>, <b>Views per active user</b>, <b>Average engagement time per active user</b>, <b>Event count</b> and <b>Key events</b>. For an exact match rather than a "contains" search, use <b>Add filter</b> at the top of the report and choose the <i>exactly matches</i> condition.</p>
+    <p>This report does not include sessions or traffic sources by default. That is intentional, and the next section explains why.</p>
+
+    <h2>Why some metrics don't belong to a page</h2>
+    <p>Every GA4 metric has a scope. Knowing the scope tells you whether a number can be read for one page on its own.</p>
+    <ul>
+      <li><b>Event-scoped</b> metrics, such as views and event count, are recorded on the page itself. They add up neatly: the views of all pages equal the site's total views.</li>
+      <li><b>Session-scoped</b> metrics, such as sessions and engagement rate, describe a whole visit. A visit that touches five pages counts once for each of those pages, so page sessions never add up to the site total.</li>
+      <li><b>User-scoped</b> metrics, such as users and new users, describe people. One person who reads three pages is a user of each page.</li>
+    </ul>
+    <p>Here is a simple example. A visitor lands on your blog, then opens <code>/pricing</code> and <code>/signup</code>. In GA4 that is one session and one user for the site, but <code>/pricing</code> and <code>/signup</code> each report one session and one user too. Nothing is wrong with the data. The visit simply belongs to every page it included.</p>
+    <p>So when you look at sessions for a single page, ask which question you are answering. Is it "how many visits included this page?" or "how many visits started here?" GA4 has a different place for each.</p>
+
+    <h2>Option 2: the Landing page report</h2>
+    <p>If you want to know how many visits <i>started</i> on a page and where those visitors came from, use <b>Reports &gt; Engagement &gt; Landing page</b>. Each session is counted once, on the first page of the visit, so these numbers do add up across pages.</p>
+    <p>The report shows <b>Sessions</b>, <b>Active users</b>, <b>New users</b>, <b>Average engagement time per session</b> and <b>Key events</b>. To see traffic sources for one landing page:</p>
+    <ol>
+      <li>Search for the page path in the table.</li>
+      <li>Click the <b>+</b> next to the column heading to add a secondary dimension.</li>
+      <li>Choose <b>Session default channel group</b> for channels, or <b>Session source / medium</b> for more detail.</li>
+    </ol>
+    <p>This is the right report for SEO work. Filter the channel to <b>Organic Search</b> and you can see how many search visits each page earns, and what those visitors did next.</p>
+    <p>If the Landing page report is not in your navigation, someone may have customized the report menu for your property. An administrator can add it back from the <b>Library</b> at the bottom of the Reports menu.</p>
+
+    <h2>Option 3: a free-form exploration</h2>
+    <p>Explorations let you combine any dimensions and metrics, which is useful when the standard reports don't show what you need.</p>
+    <ol>
+      <li>Go to <b>Explore</b> and start a <b>Free form</b> exploration.</li>
+      <li>Under Dimensions, import <b>Page path and screen class</b> and <b>Session default channel group</b>.</li>
+      <li>Under Metrics, import <b>Views</b>, <b>Sessions</b>, <b>Engagement rate</b> and <b>Key events</b>.</li>
+      <li>Drag the page dimension to Rows and the channel to Columns, then add the metrics to Values.</li>
+      <li>Add a filter: <b>Page path and screen class</b> <i>exactly matches</i> <code>/pricing</code>.</li>
+    </ol>
+    <p>Sessions here means "sessions that included this page", for the reasons described above. Explorations can also be sampled on very large date ranges, and both reports and explorations can hide small numbers behind data thresholds when Google signals is turned on. If a figure looks different from the standard report, check the indicator at the top of the exploration first.</p>
+
+    <h2>Which option should you use?</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Your question</th><th>Where to look</th></tr></thead>
+        <tbody>
+          <tr><td>How many times was this page viewed?</td><td>Pages and screens</td></tr>
+          <tr><td>How long do people spend on it?</td><td>Pages and screens</td></tr>
+          <tr><td>How many visits started here, and from which channels?</td><td>Landing page</td></tr>
+          <tr><td>How much organic search traffic does this page earn?</td><td>Landing page, filtered to Organic Search</td></tr>
+          <tr><td>How many visits included this page, by channel?</td><td>Free-form exploration</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>The shortcut: check the page while you're on it</h2>
+    <p>All three options start in GA4 and end with a filter. If you check pages often, for example while reviewing content or after publishing a change, switching tabs and re-typing paths adds up.</p>
+    <p>SideNote Analytics is a free Chrome extension that does the filtering for you. Open any page of your site, click the icon, and the side panel shows that page's GA4 numbers, compared with the previous period. It reads the same GA4 Data API as your reports, with read-only access, and no data leaves your browser.</p>
+
+    <h2>Common questions</h2>
+    <h3>Why does my page have more views than users?</h3>
+    <p>One person can view a page several times, in the same visit or on different days. Views count each view, while users count each person once for the date range. The ratio is shown as Views per active user.</p>
+    <h3>Why don't the page numbers add up to the site total?</h3>
+    <p>Views and event counts do add up. Users and sessions don't, because one visit or one person can include many pages. Use the Landing page report when you need session counts that add up.</p>
+    <h3>How do I include query parameters, such as UTM tags?</h3>
+    <p><b>Page path and screen class</b> leaves out the query string. Use <b>Page path + query string</b> in the Landing page report, or <b>Page location</b> in an exploration, to see the full URL.</p>
+    <h3>Can I see data for a page from today?</h3>
+    <p>Standard reports usually update within a few hours, and some figures can change for up to two days while GA4 finishes processing. For a live view of the last 30 minutes, use the <b>Realtime</b> report.</p>
+
+    <aside class="try" aria-label="SideNote Analytics">
+      <p class="eyebrow">Free Chrome extension</p>
+      <p><b>See a page's GA4 numbers without leaving the page.</b> SideNote Analytics opens the page's sessions, users, engagement and traffic sources in Chrome's side panel, compared with the previous period.</p>
+      <a class="btn primary" href="https://chromewebstore.google.com/detail/sidenote-analytics/bgmgjefpcplopncgohninfdddjmldfml?utm_source=sidenoteanalytics.com&amp;utm_medium=guide&amp;utm_campaign=how-to-see-ga4-data-for-a-single-page" data-track="store_click" rel="noopener">Add to Chrome</a>
+    </aside>
+
+    <section class="related" aria-label="More guides">
+      <h2>More guides</h2>
+      <ul>
+        <li><a href="/guides/">All guides</a></li>
+      </ul>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="sign">SideNote <span class="brand-soft">Analytics</span></span>
+    <p>Questions or feedback? <a href="https://www.linkedin.com/in/veyselm" rel="noopener">Reach out on LinkedIn</a>. Not affiliated with Google. <a href="/guides/">Guides</a> · <a href="/support.html">Support</a> · <a href="/privacy.html">Privacy</a> · <button type="button" class="link-btn" data-cookie-settings>Cookie settings</button></p>
+  </div>
+</footer>
+
+<script src="/consent.js?v=5"></script>
+</body>
+</html>

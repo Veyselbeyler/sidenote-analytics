@@ -1,0 +1,105 @@
+{
+  "_readme": "Topic queue for /guides/. The weekly drafting job takes the first topic with status \"queued\", writes it, and sets status to \"drafted\" in the same pull request. Set status to \"published\" after merge, or \"dropped\" to skip a topic. Edit priority to change the order.",
+  "topics": [
+    {
+      "slug": "how-to-see-ga4-data-for-a-single-page",
+      "title": "How to see GA4 data for a single page",
+      "target_query": "how to see ga4 data for a specific page",
+      "secondary_queries": ["ga4 page level data", "ga4 filter by page path", "ga4 page views for one page"],
+      "intent": "how-to",
+      "angle": "Three ways: the Pages and screens report with a filter, an exploration, and the side panel. Explain which metrics are page-scoped and which are not.",
+      "priority": 1,
+      "status": "drafted"
+    },
+    {
+      "slug": "ga4-engagement-rate-explained",
+      "title": "GA4 engagement rate, explained",
+      "target_query": "ga4 engagement rate",
+      "secondary_queries": ["what is a good engagement rate in ga4", "engaged session definition"],
+      "intent": "definition",
+      "angle": "Define an engaged session (10 seconds, key event or 2+ views), how the 10-second timer can be changed, and how to read the rate per page without over-interpreting it.",
+      "priority": 2,
+      "status": "queued"
+    },
+    {
+      "slug": "ga4-bounce-rate",
+      "title": "Bounce rate in GA4: what changed and how to read it",
+      "target_query": "bounce rate ga4",
+      "secondary_queries": ["ga4 bounce rate vs universal analytics", "how to add bounce rate in ga4"],
+      "intent": "definition",
+      "angle": "Bounce rate is the inverse of engagement rate in GA4. Contrast with the Universal Analytics definition and show where to add it to a report.",
+      "priority": 3,
+      "status": "queued"
+    },
+    {
+      "slug": "ga4-landing-page-report",
+      "title": "Using the GA4 landing page report",
+      "target_query": "ga4 landing page report",
+      "secondary_queries": ["ga4 landing page sessions", "landing page organic traffic ga4"],
+      "intent": "how-to",
+      "angle": "Where the report lives, why it is the right place for sessions per page, and how to filter it to organic search.",
+      "priority": 4,
+      "status": "queued"
+    },
+    {
+      "slug": "ga4-average-engagement-time",
+      "title": "Average engagement time in GA4",
+      "target_query": "average engagement time ga4",
+      "secondary_queries": ["ga4 time on page", "average engagement time per active user"],
+      "intent": "definition",
+      "angle": "How engagement time is measured (foreground time), the per-active-user versus per-session variants, and the closest equivalent of time on page.",
+      "priority": 5,
+      "status": "queued"
+    },
+    {
+      "slug": "ga4-sessions-vs-users",
+      "title": "Sessions vs. users vs. views in GA4",
+      "target_query": "ga4 sessions vs users",
+      "secondary_queries": ["ga4 views vs sessions", "active users vs total users ga4"],
+      "intent": "comparison",
+      "angle": "One visitor, one example day, three counts. Explain why the numbers never add up across pages.",
+      "priority": 6,
+      "status": "queued"
+    },
+    {
+      "slug": "ga4-traffic-source-for-a-page",
+      "title": "How to find the traffic source of a page in GA4",
+      "target_query": "ga4 traffic source by page",
+      "secondary_queries": ["ga4 source medium by landing page", "session source vs first user source"],
+      "intent": "how-to",
+      "angle": "Session-scoped versus user-scoped source dimensions, and the combinations that produce empty or misleading rows.",
+      "priority": 7,
+      "status": "queued"
+    },
+    {
+      "slug": "ga4-compare-date-ranges",
+      "title": "How to compare date ranges in GA4",
+      "target_query": "ga4 compare date ranges",
+      "secondary_queries": ["ga4 compare to previous period", "ga4 year over year"],
+      "intent": "how-to",
+      "angle": "Comparison in standard reports and explorations, matching day of week, and when a change is too small to act on.",
+      "priority": 8,
+      "status": "queued"
+    },
+    {
+      "slug": "ga4-data-thresholds-and-sampling",
+      "title": "Why GA4 numbers differ: thresholds, sampling and time zones",
+      "target_query": "ga4 data thresholds",
+      "secondary_queries": ["ga4 sampling", "ga4 numbers don't match", "ga4 report vs exploration difference"],
+      "intent": "troubleshooting",
+      "angle": "The common reasons two GA4 views of the same page disagree, and how to tell which one applies.",
+      "priority": 9,
+      "status": "queued"
+    },
+    {
+      "slug": "ga4-page-path-vs-page-location",
+      "title": "Page path vs. page location in GA4",
+      "target_query": "ga4 page path vs page location",
+      "secondary_queries": ["ga4 page path and screen class", "ga4 query parameters in page path"],
+      "intent": "comparison",
+      "angle": "What each dimension contains, how query strings and trailing slashes split one page into many rows, and which one to filter on.",
+      "priority": 10,
+      "status": "queued"
+    }
+  ]
+}
