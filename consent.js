@@ -24,7 +24,7 @@
   banner.innerHTML =
     '<p>This website uses Google Analytics cookies to understand how visitors use it. ' +
     'The SideNote Analytics extension itself does not track you. ' +
-    '<a href="privacy.html#website">Learn more</a></p>' +
+    '<a href="/privacy.html#website">Learn more</a></p>' +
     '<div class="consent-actions">' +
     '<button type="button" class="btn ghost" data-consent="no">Decline</button>' +
     '<button type="button" class="btn primary" data-consent="yes">Accept</button>' +

@@ -201,3 +201,24 @@ footer p { color: var(--ink-soft); font-size: 15px; }
 .consent .btn.primary { background: var(--ink); color: var(--paper); }
 .link-btn { font: inherit; color: inherit; background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
 .consent[hidden] { display: none; }
+
+/* guides */
+.doc ol { margin-top: 12px; padding-left: 1.4em; }
+.doc ol li + li { margin-top: 6px; }
+.guide .crumbs { font-size: 14px; color: var(--ink-soft); }
+.guide .crumbs a { text-decoration: none; }
+.guide .crumbs a:hover { text-decoration: underline; }
+.guide h1 { margin-top: 14px; }
+.guide .short { margin-top: 24px; }
+.guide .short p { margin: 0; }
+.try { margin-top: 48px; padding: 24px; border-radius: 20px; background: color-mix(in srgb, var(--hl-alive) 22%, var(--paper)); display: grid; gap: 12px; justify-items: start; }
+.try p { margin: 0; }
+.related { margin-top: 48px; padding-top: 8px; border-top: 1px solid var(--rule); }
+.related h2 { margin-top: 24px; font-size: 20px; }
+.guides-hub .lede { margin-top: 18px; font-size: 18px; }
+.guide-list { list-style: none; padding: 0 !important; margin-top: 32px !important; display: grid; gap: 12px; }
+.guide-list li + li { margin-top: 0; }
+.guide-list a { display: grid; gap: 6px; padding: 20px 22px; border: 1px solid var(--rule); border-radius: 18px; background: var(--panel); text-decoration: none; }
+.guide-list a:hover { border-color: var(--ink-soft); }
+.guide-list b { font-size: 19px; letter-spacing: -0.01em; }
+.guide-list span { color: var(--ink-soft); font-size: 15.5px; }

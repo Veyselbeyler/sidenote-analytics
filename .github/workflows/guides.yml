@@ -1,0 +1,19 @@
+name: Guides quality check
+
+on:
+  pull_request:
+    paths: ['guides/**', 'sitemap.xml', 'scripts/guides.mjs', 'content/topics.json']
+  push:
+    branches: [main]
+    paths: ['guides/**', 'sitemap.xml', 'scripts/guides.mjs']
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node -e "JSON.parse(require('fs').readFileSync('content/topics.json','utf8'))"
+      - run: node scripts/guides.mjs --check
