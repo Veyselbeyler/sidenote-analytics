@@ -27,7 +27,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:url" content="https://sidenoteanalytics.com/guides/how-to-see-ga4-data-for-a-single-page/">
 <meta property="og:image" content="https://sidenoteanalytics.com/img/og.png">
 <meta property="article:published_time" content="2026-10-24">
-<meta property="article:modified_time" content="2026-10-24">
+<meta property="article:modified_time" content="2026-10-26">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
@@ -38,7 +38,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "headline": "How to see GA4 data for a single page",
       "description": "Three ways to see GA4 views, users, sessions and traffic sources for one page, and why some page metrics never add up to the site total.",
       "datePublished": "2026-10-24",
-      "dateModified": "2026-10-24",
+      "dateModified": "2026-10-26",
       "mainEntityOfPage": "https://sidenoteanalytics.com/guides/how-to-see-ga4-data-for-a-single-page/",
       "image": "https://sidenoteanalytics.com/img/og.png",
       "author": { "@type": "Person", "name": "Veysel Mehmetoglu", "url": "https://www.linkedin.com/in/veyselm" },
@@ -80,7 +80,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/guides/">Guides</a></nav>
   <article>
     <h1>How to see GA4 data for a single page</h1>
-    <p class="updated">Updated <time datetime="2026-10-24">October 24, 2026</time> · 5 min read</p>
+    <p class="updated">Updated <time datetime="2026-10-26">October 26, 2026</time> · 5 min read</p>
 
     <div class="short">
       <p><b>In short:</b> Use <b>Pages and screens</b> for views and engagement time, the <b>Landing page</b> report for sessions and traffic sources, and a free-form exploration for anything else. Users and sessions are not page metrics in the strict sense, so they never add up across pages.</p>
@@ -104,7 +104,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <p>Every GA4 metric has a scope. Knowing the scope tells you whether a number can be read for one page on its own.</p>
     <ul>
       <li><b>Event-scoped</b> metrics, such as views and event count, are recorded on the page itself. They add up neatly: the views of all pages equal the site's total views.</li>
-      <li><b>Session-scoped</b> metrics, such as sessions and engagement rate, describe a whole visit. A visit that touches five pages counts once for each of those pages, so page sessions never add up to the site total.</li>
+      <li><b>Session-scoped</b> metrics, such as sessions and <a href="/guides/ga4-engagement-rate-explained/">engagement rate</a>, describe a whole visit. A visit that touches five pages counts once for each of those pages, so page sessions never add up to the site total.</li>
       <li><b>User-scoped</b> metrics, such as users and new users, describe people. One person who reads three pages is a user of each page.</li>
     </ul>
     <p>Here is a simple example. A visitor lands on your blog, then opens <code>/pricing</code> and <code>/signup</code>. In GA4 that is one session and one user for the site, but <code>/pricing</code> and <code>/signup</code> each report one session and one user too. Nothing is wrong with the data. The visit simply belongs to every page it included.</p>
@@ -169,6 +169,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <section class="related" aria-label="More guides">
       <h2>More guides</h2>
       <ul>
+        <li><a href="/guides/ga4-engagement-rate-explained/">GA4 engagement rate, explained</a></li>
         <li><a href="/guides/">All guides</a></li>
       </ul>
     </section>
