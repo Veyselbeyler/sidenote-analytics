@@ -9,7 +9,7 @@
       "intent": "how-to",
       "angle": "Three ways: the Pages and screens report with a filter, an exploration, and the side panel. Explain which metrics are page-scoped and which are not.",
       "priority": 1,
-      "status": "drafted"
+      "status": "published"
     },
     {
       "slug": "ga4-engagement-rate-explained",
@@ -19,7 +19,7 @@
       "intent": "definition",
       "angle": "Define an engaged session (10 seconds, key event or 2+ views), how the 10-second timer can be changed, and how to read the rate per page without over-interpreting it.",
       "priority": 2,
-      "status": "queued"
+      "status": "drafted"
     },
     {
       "slug": "ga4-bounce-rate",
