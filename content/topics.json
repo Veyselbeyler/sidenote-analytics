@@ -1,5 +1,5 @@
 {
-  "_readme": "Topic queue for /guides/. The weekly drafting job takes the first topic with status \"queued\", writes it, and sets status to \"drafted\" in the same pull request. Set status to \"published\" after merge, or \"dropped\" to skip a topic. Edit priority to change the order.",
+  "_readme": "Topic queue for /guides/. The weekly drafting job takes the first topic with status \"queued\", writes it, and sets status to \"published\" in the same pull request, which is merged automatically once the checks pass. Set status to \"dropped\" to skip a topic. Edit priority to change the order.",
   "topics": [
     {
       "slug": "how-to-see-ga4-data-for-a-single-page",
@@ -19,7 +19,7 @@
       "intent": "definition",
       "angle": "Define an engaged session (10 seconds, key event or 2+ views), how the 10-second timer can be changed, and how to read the rate per page without over-interpreting it.",
       "priority": 2,
-      "status": "drafted"
+      "status": "published"
     },
     {
       "slug": "ga4-bounce-rate",
