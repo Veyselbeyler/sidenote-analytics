@@ -1,7 +1,8 @@
 # Guides: editorial brief
 
-This is the brief the weekly drafting job follows. A person reviews every
-draft before it is published.
+This is the brief the weekly job follows. Guides are published
+automatically once the quality check passes, so the brief is the editorial
+gate: when in doubt, leave a claim out.
 
 ## Who we write for
 
@@ -53,4 +54,4 @@ spelling.
   JSON-LD block. Set `utm_campaign` on the store link to the slug.
 - Run `node scripts/guides.mjs` to update the hub page and the sitemap,
   then `node scripts/guides.mjs --check` to run the quality checks.
-- In `content/topics.json`, set the topic's status to `drafted`.
+- In `content/topics.json`, set the topic's status to `published`.
