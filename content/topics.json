@@ -29,7 +29,7 @@
       "intent": "definition",
       "angle": "Bounce rate is the inverse of engagement rate in GA4. Contrast with the Universal Analytics definition and show where to add it to a report.",
       "priority": 3,
-      "status": "queued"
+      "status": "dropped"
     },
     {
       "slug": "ga4-landing-page-report",
@@ -39,7 +39,7 @@
       "intent": "how-to",
       "angle": "Where the report lives, why it is the right place for sessions per page, and how to filter it to organic search.",
       "priority": 4,
-      "status": "queued"
+      "status": "published"
     },
     {
       "slug": "ga4-average-engagement-time",
