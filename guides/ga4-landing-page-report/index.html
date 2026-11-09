@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500});
+try { if (localStorage.getItem('sn-consent') === 'granted') gtag('consent', 'update', {analytics_storage: 'granted'}); } catch (e) {}
+dataLayer.push({content_group: 'Guides', page_type: 'guide'});
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KLZKFRTD');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Using the GA4 landing page report · SideNote</title>
+<meta name="description" content="What the GA4 landing page report counts, how to break it down by channel, link it with Search Console, and read the (not set) and query string rows.">
+<link rel="canonical" href="https://sidenoteanalytics.com/guides/ga4-landing-page-report/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SideNote Analytics">
+<meta property="og:title" content="Using the GA4 landing page report · SideNote">
+<meta property="og:description" content="What the GA4 landing page report counts, how to break it down by channel, link it with Search Console, and read the (not set) and query string rows.">
+<meta property="og:url" content="https://sidenoteanalytics.com/guides/ga4-landing-page-report/">
+<meta property="og:image" content="https://sidenoteanalytics.com/img/og.png">
+<meta property="article:published_time" content="2026-11-09">
+<meta property="article:modified_time" content="2026-11-09">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Using the GA4 landing page report",
+      "description": "What the GA4 landing page report counts, how to break it down by channel, link it with Search Console, and read the (not set) and query string rows.",
+      "datePublished": "2026-11-09",
+      "dateModified": "2026-11-09",
+      "mainEntityOfPage": "https://sidenoteanalytics.com/guides/ga4-landing-page-report/",
+      "image": "https://sidenoteanalytics.com/img/og.png",
+      "author": { "@type": "Person", "name": "Veysel Mehmetoglu", "url": "https://www.linkedin.com/in/veyselm" },
+      "publisher": { "@type": "Organization", "name": "SideNote Analytics", "url": "https://sidenoteanalytics.com/", "logo": "https://sidenoteanalytics.com/img/icon.png" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sidenoteanalytics.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://sidenoteanalytics.com/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "Using the GA4 landing page report" }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/site.css?v=3">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLZKFRTD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="SideNote Analytics home">
+      <img class="mark" src="/img/logo.svg" alt="" width="42" height="42">
+      <span>SideNote <span class="brand-soft">Analytics</span></span>
+    </a>
+    <nav class="links" aria-label="Sections"><a href="/">Home</a><a href="/guides/">Guides</a></nav>
+  </div>
+</header>
+
+<main class="wrap doc guide">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/guides/">Guides</a></nav>
+  <article>
+    <h1>Using the GA4 landing page report</h1>
+    <p class="updated">Updated <time datetime="2026-11-09">November 9, 2026</time> · 5 min read</p>
+
+    <div class="short">
+      <p><b>In short:</b> Open <b>Reports &gt; Engagement &gt; Landing page</b> to see where sessions start. Each session is counted once, on its first page, so it is the right report for comparing pages as entry points. Add <b>Session default channel group</b> as a secondary dimension to see which pages earn organic search visits.</p>
+    </div>
+
+    <p>The GA4 landing page report shows the first page of every session, along with how many sessions started there, how many users arrived, and what those visits produced. You find it under <b>Reports &gt; Engagement &gt; Landing page</b>. Because each session is counted once, on its first page, it is the most reliable place in GA4 to compare pages as entry points, for example for organic search, campaigns or referrals.</p>
+    <p>This guide explains what the report counts, how to break it down by traffic source, how to connect it with Search Console data, and what the <code>(not set)</code> row means.</p>
+
+    <h2>What the report shows</h2>
+    <p>The report's main dimension is <b>Landing page</b>: the page path and query string of the first page view in a session. If a visitor arrives on <code>/pricing?ref=newsletter</code>, that is the row their session is counted in.</p>
+    <p>The default metrics are:</p>
+    <ul>
+      <li><b>Sessions</b>: visits that started on the page.</li>
+      <li><b>Active users</b> and <b>New users</b>: people behind those visits.</li>
+      <li><b>Average engagement time per session</b>: how long those visits lasted while the site was in focus.</li>
+      <li><b>Key events</b> and <b>Total revenue</b>: what the visits produced.</li>
+    </ul>
+    <p>Everything in the report is session-scoped. A key event that happens three pages later is still credited to the page where the visit began. That is exactly what you want when the question is "which pages bring in visits that go somewhere?"</p>
+
+    <h2>Why sessions add up here, and nowhere else</h2>
+    <p>In most page reports, one visit can be counted on several rows, because it included several pages. In the landing page report, every session has exactly one first page, so the session counts across all rows add up to the site total.</p>
+    <p>That makes the report the right choice for questions such as:</p>
+    <ul>
+      <li>How many visits did this page bring in last month?</li>
+      <li>Which pages are the main entry points from search?</li>
+      <li>Did a redesign change how many visits start on a page, or only how many pass through it?</li>
+    </ul>
+    <p>For a fuller explanation of how scope affects page metrics, see <a href="/guides/how-to-see-ga4-data-for-a-single-page/">How to see GA4 data for a single page</a>.</p>
+
+    <h2>Breaking it down by traffic source</h2>
+    <p>The report becomes much more useful with a secondary dimension:</p>
+    <ol>
+      <li>Open <b>Reports &gt; Engagement &gt; Landing page</b>.</li>
+      <li>Click the <b>+</b> next to the <b>Landing page</b> column heading.</li>
+      <li>Choose <b>Traffic source</b> and then <b>Session default channel group</b>, or <b>Session source / medium</b> for more detail.</li>
+    </ol>
+    <p>Each landing page now appears once per channel. To focus on search, type <code>Organic Search</code> into the search box above the table, or use <b>Add filter</b> at the top of the report to keep only that channel. You now have a list of the pages that earn organic visits, with the engagement and key events those visits produced.</p>
+    <p>A practical example: a blog post brings in 1,200 organic sessions a month with 30 key events, while a product page brings in 300 organic sessions with 45 key events. The blog post is the bigger entry point, but the product page converts its search traffic far better. Both observations are useful, and only the landing page report shows them side by side.</p>
+
+    <h2>Adding engagement rate</h2>
+    <p>The report does not include engagement rate by default. An Editor or Administrator can add it with <b>Customize report</b> (the pencil icon), then <b>Metrics</b> and <b>Add metric</b>. For entry pages, it is the most honest version of the metric, because each session is judged once, on the page where it started. <a href="/guides/ga4-engagement-rate-explained/">GA4 engagement rate, explained</a> covers why the same metric can be misleading in other page reports.</p>
+
+    <h2>Combining it with Search Console</h2>
+    <p>If your GA4 property is linked to Search Console, GA4 also offers a <b>Google organic search traffic</b> report. It uses the same landing page dimension and adds Search Console metrics: clicks, impressions, click-through rate and average position, next to GA4 metrics such as engaged sessions and key events.</p>
+    <p>The report is part of the Search Console collection, which is not published by default. To see it, open the <b>Library</b> at the bottom of the Reports menu, publish the Search Console collection, and then go to <b>Reports &gt; Search Console &gt; Google organic search traffic</b>. Search Console data appears with a delay of about two days.</p>
+    <p>Expect clicks in this report and organic sessions in the landing page report to differ. They are measured by different systems, and GA4 only records visits from people whose browsers load the tag, which depends on consent settings and ad blockers.</p>
+
+    <h2>What "(not set)" means</h2>
+    <p>A <code>(not set)</code> row appears when a session has no page view event. This can happen when a session times out and the visitor interacts with the page again without loading a new one, or when events are sent without a page view, for example from a server. A small <code>(not set)</code> share is normal. A large or growing one is worth checking with whoever maintains your tagging.</p>
+
+    <h2>Query strings and duplicate rows</h2>
+    <p>Because the dimension includes the query string, one page can appear as several rows: <code>/pricing</code>, <code>/pricing?ref=newsletter</code>, <code>/pricing?utm_source=linkedin</code> and so on. When you want one number per page, search for the path without parameters and add up the rows, or build a free-form exploration with <b>Landing page</b> and a filter that matches the beginning of the path.</p>
+
+    <h2>Checking a landing page while you are on it</h2>
+    <p>SideNote Analytics shows the sessions, users, organic search share and key events of the page you are viewing in Chrome's side panel, compared with the previous period. It is a quick way to see whether a page's traffic has moved before you open the full report.</p>
+
+    <h2>Common questions</h2>
+    <h3>Where did the old "Landing page" report from Universal Analytics go?</h3>
+    <p>GA4 has its own Landing page report under Engagement. If it is missing from your menu, an Editor or Administrator can add it back to the navigation from the Library.</p>
+    <h3>Can I see landing pages for a single campaign?</h3>
+    <p>Yes. Add <b>Session campaign</b> as a secondary dimension, or filter the report by it. UTM-tagged links make this much easier.</p>
+    <h3>Why is my home page the top landing page for "Direct" traffic?</h3>
+    <p>Direct includes typed URLs and bookmarks, which usually point to the home page, and visits whose source could not be identified, such as links opened from some apps. Treat large Direct numbers with care.</p>
+
+    <aside class="try" aria-label="SideNote Analytics">
+      <p class="eyebrow">Free Chrome extension</p>
+      <p><b>See a page's GA4 numbers without leaving the page.</b> SideNote Analytics opens the page's sessions, users, engagement and traffic sources in Chrome's side panel, compared with the previous period.</p>
+      <a class="btn primary" href="https://chromewebstore.google.com/detail/sidenote-analytics/bgmgjefpcplopncgohninfdddjmldfml?utm_source=sidenoteanalytics.com&amp;utm_medium=guide&amp;utm_campaign=ga4-landing-page-report" data-track="store_click" rel="noopener">Add to Chrome</a>
+    </aside>
+
+    <section class="related" aria-label="More guides">
+      <h2>More guides</h2>
+      <ul>
+        <li><a href="/guides/how-to-see-ga4-data-for-a-single-page/">How to see GA4 data for a single page</a></li>
+        <li><a href="/guides/ga4-engagement-rate-explained/">GA4 engagement rate, explained</a></li>
+        <li><a href="/guides/">All guides</a></li>
+      </ul>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="sign">SideNote <span class="brand-soft">Analytics</span></span>
+    <p>Questions or feedback? <a href="https://www.linkedin.com/in/veyselm" rel="noopener">Reach out on LinkedIn</a>. Not affiliated with Google. <a href="/guides/">Guides</a> · <a href="/support.html">Support</a> · <a href="/privacy.html">Privacy</a> · <button type="button" class="link-btn" data-cookie-settings>Cookie settings</button></p>
+  </div>
+</footer>
+
+<script src="/consent.js?v=5"></script>
+<!-- Cloudflare Web Analytics: cookieless visit counts, independent of consent --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "324d076cd57149ae91cb1d8261f0ad9f"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
