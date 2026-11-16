@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500});
+try { if (localStorage.getItem('sn-consent') === 'granted') gtag('consent', 'update', {analytics_storage: 'granted'}); } catch (e) {}
+dataLayer.push({content_group: 'Guides', page_type: 'guide'});
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KLZKFRTD');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Average engagement time in GA4 · SideNote</title>
+<meta name="description" content="How GA4 measures average engagement time, the difference between per active user and per session, and how to read it as a page's time on page.">
+<link rel="canonical" href="https://sidenoteanalytics.com/guides/ga4-average-engagement-time/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SideNote Analytics">
+<meta property="og:title" content="Average engagement time in GA4 · SideNote">
+<meta property="og:description" content="How GA4 measures average engagement time, the difference between per active user and per session, and how to read it as a page's time on page.">
+<meta property="og:url" content="https://sidenoteanalytics.com/guides/ga4-average-engagement-time/">
+<meta property="og:image" content="https://sidenoteanalytics.com/img/og.png">
+<meta property="article:published_time" content="2026-11-16">
+<meta property="article:modified_time" content="2026-11-16">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Average engagement time in GA4",
+      "description": "How GA4 measures average engagement time, the difference between per active user and per session, and how to read it as a page's time on page.",
+      "datePublished": "2026-11-16",
+      "dateModified": "2026-11-16",
+      "mainEntityOfPage": "https://sidenoteanalytics.com/guides/ga4-average-engagement-time/",
+      "image": "https://sidenoteanalytics.com/img/og.png",
+      "author": { "@type": "Person", "name": "Veysel Mehmetoglu", "url": "https://www.linkedin.com/in/veyselm" },
+      "publisher": { "@type": "Organization", "name": "SideNote Analytics", "url": "https://sidenoteanalytics.com/", "logo": "https://sidenoteanalytics.com/img/icon.png" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sidenoteanalytics.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://sidenoteanalytics.com/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "Average engagement time in GA4" }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/site.css?v=3">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLZKFRTD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="SideNote Analytics home">
+      <img class="mark" src="/img/logo.svg" alt="" width="42" height="42">
+      <span>SideNote <span class="brand-soft">Analytics</span></span>
+    </a>
+    <nav class="links" aria-label="Sections"><a href="/">Home</a><a href="/guides/">Guides</a></nav>
+  </div>
+</header>
+
+<main class="wrap doc guide">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/guides/">Guides</a></nav>
+  <article>
+    <h1>Average engagement time in GA4</h1>
+    <p class="updated">Updated <time datetime="2026-11-16">November 16, 2026</time> · 5 min read</p>
+
+    <div class="short">
+      <p><b>In short:</b> GA4 counts engagement time only while the page is in focus. <b>Pages and screens</b> shows it per active user, which is the closest thing to time on page; session-based reports show it per session. The two answer different questions, so compare pages using the same version.</p>
+    </div>
+
+    <p>Average engagement time in GA4 is the average time your site was in focus in a visitor's browser. It only counts time when the tab is the one being looked at, so a page left open behind other tabs does not add to it. In the <b>Pages and screens</b> report, it is calculated per active user: the total engagement time on a page divided by the number of active users who viewed it.</p>
+    <p>That makes it GA4's closest equivalent to "time on page", but it is measured differently and reads differently. This guide covers how GA4 measures the time, the per-user and per-session versions you will see in reports, and how to interpret the number for a single page.</p>
+
+    <h2>How GA4 measures engagement time</h2>
+    <p>GA4 starts counting when a session begins and keeps counting while the page is in focus. The time collected so far is sent when the visitor switches to another tab or window, leaves the page or closes it. It travels as a parameter on the next event, and an event called <code>user_engagement</code> sends any time that is left over.</p>
+    <p>Three consequences follow from this:</p>
+    <ul>
+      <li><b>Background time is excluded.</b> A visitor who opens ten articles in tabs and reads one gets engagement time on the one they read.</li>
+      <li><b>The last page of a visit is measured.</b> Universal Analytics calculated time on page from the gap between two page views, so the last page of every visit, and every single-page visit, counted as zero. GA4 does not have that blind spot.</li>
+      <li><b>It depends on the tag running.</b> Visitors whose browsers do not load the GA4 tag, for example because they declined analytics cookies or use a blocker, contribute no engagement time.</li>
+    </ul>
+
+    <h2>Per active user and per session</h2>
+    <p>GA4 shows two versions of the metric in its standard reports, and they answer different questions.</p>
+    <ul>
+      <li><b>Average engagement time per active user</b> appears in <b>Pages and screens</b>. It divides total engagement time by active users, so a person who views a page three times in a week contributes all three visits' worth of time.</li>
+      <li><b>Average engagement time per session</b> appears in reports organized by session, such as <b>Traffic acquisition</b> and <b>Landing page</b>. It divides total engagement time by sessions.</li>
+    </ul>
+    <p>An example shows the difference. A help page is viewed by 100 people in a week. Eighty of them view it once for 40 seconds. Twenty come back to it twice more, spending 40 seconds each time. Total engagement time is 80 × 40 + 20 × 120 = 5,600 seconds. Per active user, that is 56 seconds. Per session, across 140 sessions, it is 40 seconds. Neither number is wrong: the per-user figure rewards pages people return to, while the per-session figure describes a typical visit.</p>
+    <p>When you compare pages, use the same version for all of them, and say which one you used when you share the numbers.</p>
+
+    <h2>Finding engagement time for a single page</h2>
+    <ol>
+      <li>Go to <b>Reports &gt; Engagement &gt; Pages and screens</b>.</li>
+      <li>Make sure the first column shows <b>Page path and screen class</b>.</li>
+      <li>Search for the page path, such as <code>/pricing</code>, and read the <b>Average engagement time per active user</b> column.</li>
+    </ol>
+    <p>For the time that visits starting on the page lasted in total, including any other pages they went on to, use the <b>Landing page</b> report and its per-session metric. <a href="/guides/ga4-landing-page-report/">Using the GA4 landing page report</a> explains when that view is the better one.</p>
+
+    <h2>How to read the number</h2>
+    <p>Engagement time is easy to misread, because a higher number is not always better.</p>
+    <ul>
+      <li><b>Compare it with the page's purpose.</b> A long article where readers spend three minutes is doing well. A checkout page where people spend three minutes may be confusing them.</li>
+      <li><b>Compare it with the content.</b> If a 2,000-word guide averages 25 seconds, most visitors are not reading it. If a short answer page averages 25 seconds, that may be exactly right.</li>
+      <li><b>Compare it over time.</b> Use the <b>Compare</b> option in the date picker to see whether a change to the page moved the number. A single period on its own says little.</li>
+      <li><b>Look at it next to engagement rate.</b> A page with long engagement time but a low engagement rate may be working well for a small group and losing everyone else quickly. <a href="/guides/ga4-engagement-rate-explained/">GA4 engagement rate, explained</a> covers that metric.</li>
+    </ul>
+    <p>Averages hide a lot. A few visitors who leave a page in focus while they do something else can lift the figure noticeably on a page with little traffic, so treat small samples with caution.</p>
+
+    <h2>Why your numbers may look low</h2>
+    <p>Teams moving from Universal Analytics sometimes expect higher numbers and find lower ones, or the reverse. The calculation changed, so the two cannot be compared directly. Within GA4, unusually low values are often a sign that something in the setup is cutting sessions short, for example a single-page application that does not send page views when the content changes, or a tag that loads late. If engagement time is close to zero across the site, check the tagging before drawing conclusions about the content.</p>
+
+    <h2>Checking it while you are on the page</h2>
+    <p>SideNote Analytics can show time per view for the page you are on in Chrome's side panel, next to the previous period. It is a quick way to see whether visitors are spending more or less time on a page after you change it.</p>
+
+    <h2>Common questions</h2>
+    <h3>Is there a "time on page" metric in GA4?</h3>
+    <p>Not under that name. Average engagement time per active user in the Pages and screens report is the closest equivalent, and it is measured more accurately, because it counts only time in focus and includes the last page of each visit.</p>
+    <h3>Does engagement time count while a video plays in the background?</h3>
+    <p>No. If the visitor switches to another tab, the page is no longer in focus and engagement time stops, even if a video keeps playing.</p>
+    <h3>Can I mark engagement time as a key event?</h3>
+    <p>No. The <code>user_engagement</code> event cannot be used as a key event. If you want to count visits above a time threshold, create a separate event for it in Google Tag Manager.</p>
+    <p>For more on reading page-level data, see <a href="/guides/how-to-see-ga4-data-for-a-single-page/">How to see GA4 data for a single page</a>.</p>
+
+    <aside class="try" aria-label="SideNote Analytics">
+      <p class="eyebrow">Free Chrome extension</p>
+      <p><b>See a page's GA4 numbers without leaving the page.</b> SideNote Analytics opens the page's sessions, users, engagement and traffic sources in Chrome's side panel, compared with the previous period.</p>
+      <a class="btn primary" href="https://chromewebstore.google.com/detail/sidenote-analytics/bgmgjefpcplopncgohninfdddjmldfml?utm_source=sidenoteanalytics.com&amp;utm_medium=guide&amp;utm_campaign=ga4-average-engagement-time" data-track="store_click" rel="noopener">Add to Chrome</a>
+    </aside>
+
+    <section class="related" aria-label="More guides">
+      <h2>More guides</h2>
+      <ul>
+        <li><a href="/guides/ga4-engagement-rate-explained/">GA4 engagement rate, explained</a></li>
+        <li><a href="/guides/ga4-landing-page-report/">Using the GA4 landing page report</a></li>
+        <li><a href="/guides/">All guides</a></li>
+      </ul>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="sign">SideNote <span class="brand-soft">Analytics</span></span>
+    <p>Questions or feedback? <a href="https://www.linkedin.com/in/veyselm" rel="noopener">Reach out on LinkedIn</a>. Not affiliated with Google. <a href="/guides/">Guides</a> · <a href="/support.html">Support</a> · <a href="/privacy.html">Privacy</a> · <button type="button" class="link-btn" data-cookie-settings>Cookie settings</button></p>
+  </div>
+</footer>
+
+<script src="/consent.js?v=5"></script>
+<!-- Cloudflare Web Analytics: cookieless visit counts, independent of consent --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "324d076cd57149ae91cb1d8261f0ad9f"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
