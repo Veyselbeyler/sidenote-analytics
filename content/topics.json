@@ -49,7 +49,7 @@
       "intent": "definition",
       "angle": "How engagement time is measured (foreground time), the per-active-user versus per-session variants, and the closest equivalent of time on page.",
       "priority": 5,
-      "status": "queued"
+      "status": "published"
     },
     {
       "slug": "ga4-sessions-vs-users",
