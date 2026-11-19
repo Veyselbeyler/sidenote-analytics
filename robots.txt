@@ -1,4 +1,15 @@
+# Content Signals Policy (https://contentsignals.org)
+# Content signals tell automated systems how content on this site may be used
+# after it has been accessed:
+#   search   = building a search index and showing links/snippets in results
+#              (does not include AI-generated summaries)
+#   ai-input = using content as input to AI models in real time
+#              (e.g. retrieval-augmented generation, grounding, AI answers)
+#   ai-train = training or fine-tuning AI models
+# "yes" means allowed, "no" means not allowed. A missing signal expresses no preference.
+
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 Disallow: /docs/
 Disallow: /content/
