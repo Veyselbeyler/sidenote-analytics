@@ -42,7 +42,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <main class="wrap doc">
   <h1>Privacy policy</h1>
-  <p class="updated">Last updated: November 7, 2026</p>
+  <p class="updated">Last updated: November 21, 2026</p>
 
   <p>SideNote Analytics is a Chrome extension that shows Google Analytics 4 figures for the page you are viewing. This policy explains what it reads, where that goes and what it keeps.</p>
 
@@ -52,9 +52,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <h2>What it reads</h2>
   <ul>
-    <li><strong>Your Google Analytics data, read-only.</strong> When you sign in, Chrome gives the extension a token with the <code>analytics.readonly</code> scope. It uses that token to list the GA4 properties you can access and to request reports for the page you are on. It cannot change anything in your Analytics account.</li>
+    <li><strong>Your Google Analytics data, read-only.</strong> When you sign in, Chrome gives the extension a token with the <code>analytics.readonly</code> scope, the only Google scope it requests. With that token it reads:
+      <ul>
+        <li>the names and IDs of the Google Analytics accounts and GA4 properties you can access, and the website addresses of their web data streams, to find the property that matches the site you are on;</li>
+        <li>aggregated report figures for the page you are on, such as sessions, users, views, engagement, traffic sources, countries and devices, for the date range you choose;</li>
+        <li>the property's metadata (the list of available metrics and dimensions).</li>
+      </ul>
+      GA4 reports are aggregated by Google; the extension does not request user-level or personally identifiable data about your site's visitors. It cannot change anything in your Analytics account.</li>
     <li><strong>The address of the tab where you opened the panel.</strong> The page's host and path are used to find the matching property and to filter the reports to that page. The extension does not read the page's content and injects no code into it.</li>
   </ul>
+
+  <h2>How it uses it</h2>
+  <p>The data is used for one purpose: to show you, in Chrome's side panel, the figures for the page you are viewing, and to power the panel's quiz about those figures. Specifically, it is <strong>not</strong> used for advertising, retargeting or personalised ads, it is not sold, it is not used to assess creditworthiness or for lending, it is not used to train or improve AI or machine learning models, and no person reads it. The developer never receives it.</p>
 
   <h2>Where it goes</h2>
   <p>Requests go directly from your browser to Google:</p>
@@ -62,9 +71,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <li><code>analyticsdata.googleapis.com</code>, the GA4 Data API, for reports</li>
     <li><code>analyticsadmin.googleapis.com</code>, the GA4 Admin API, for your property list</li>
   </ul>
-  <p>Nothing is sent to the developer or to any third party. The extension contains no analytics, advertising or tracking code of its own.</p>
+  <p>Nothing is sent to the developer or to any third party, and no Google user data, raw or aggregated, is shared, transferred or sold to anyone. The extension contains no analytics, advertising or tracking code of its own.</p>
 
-  <h2>What it keeps, and where</h2>
+  <h2>How it is protected</h2>
+  <ul>
+    <li>SideNote Analytics has no server or database, so there is no copy of your data outside your own browser.</li>
+    <li>Every request to Google is made over HTTPS (TLS encryption), directly from your browser.</li>
+    <li>Your sign-in is handled by Chrome's built-in identity system. The extension never sees your Google password, and the access token is managed by Chrome rather than stored by the extension.</li>
+    <li>The extension requests read-only access only, can reach only Google's two Analytics API domains, does not read page content and injects no code into web pages.</li>
+  </ul>
+
+  <h2>What it keeps, how long, and how to delete it</h2>
   <p>All of it stays in your browser's extension storage.</p>
   <div class="table-scroll">
     <table>
@@ -77,13 +94,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </tbody>
     </table>
   </div>
-  <p>Removing the extension deletes all of it. Your Google sign-in token is managed by Chrome, not stored by the extension. You can revoke its access at any time at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
+  <p>Removing the extension deletes all of it. Your Google sign-in token is managed by Chrome, not stored by the extension. You can revoke its access at any time at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. Because the developer holds no copy of your data, there is nothing to delete on our side; if you have questions, email the address under Contact.</p>
 
   <h2>Sharing</h2>
   <p>"Challenge a friend" copies a line of text with your quiz score to your clipboard. It does not include the site or page, and the extension does not send it anywhere; you decide whether to paste it.</p>
 
   <h2>Google API Services User Data Policy</h2>
-  <p>SideNote Analytics' use of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+  <p>SideNote Analytics' use of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. Data received from Google APIs is used only to provide the user-facing features described above, is not transferred to others, is not used for advertising, and is not read by humans.</p>
 
   <h2 id="website">This website</h2>
   <p>This policy's sections above cover the extension. The website at sidenoteanalytics.com is separate: it uses Google Analytics, through Google Tag Manager, to count visits and see which pages and links are used.</p>
