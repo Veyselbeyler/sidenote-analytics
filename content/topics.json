@@ -59,7 +59,7 @@
       "intent": "comparison",
       "angle": "One visitor, one example day, three counts. Explain why the numbers never add up across pages.",
       "priority": 6,
-      "status": "queued"
+      "status": "published"
     },
     {
       "slug": "ga4-traffic-source-for-a-page",
