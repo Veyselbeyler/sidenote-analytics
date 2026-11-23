@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500});
+try { if (localStorage.getItem('sn-consent') === 'granted') gtag('consent', 'update', {analytics_storage: 'granted'}); } catch (e) {}
+dataLayer.push({content_group: 'Guides', page_type: 'guide'});
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KLZKFRTD');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sessions vs. users vs. views in GA4 · SideNote</title>
+<meta name="description" content="What views, sessions and users each count in GA4, why page-level numbers never add up to site totals, and which metric answers which question.">
+<link rel="canonical" href="https://sidenoteanalytics.com/guides/ga4-sessions-vs-users/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SideNote Analytics">
+<meta property="og:title" content="Sessions vs. users vs. views in GA4 · SideNote">
+<meta property="og:description" content="What views, sessions and users each count in GA4, why page-level numbers never add up to site totals, and which metric answers which question.">
+<meta property="og:url" content="https://sidenoteanalytics.com/guides/ga4-sessions-vs-users/">
+<meta property="og:image" content="https://sidenoteanalytics.com/img/og.png">
+<meta property="article:published_time" content="2026-11-23">
+<meta property="article:modified_time" content="2026-11-23">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Sessions vs. users vs. views in GA4",
+      "description": "What views, sessions and users each count in GA4, why page-level numbers never add up to site totals, and which metric answers which question.",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "mainEntityOfPage": "https://sidenoteanalytics.com/guides/ga4-sessions-vs-users/",
+      "image": "https://sidenoteanalytics.com/img/og.png",
+      "author": { "@type": "Person", "name": "Veysel Mehmetoglu", "url": "https://www.linkedin.com/in/veyselm" },
+      "publisher": { "@type": "Organization", "name": "SideNote Analytics", "url": "https://sidenoteanalytics.com/", "logo": "https://sidenoteanalytics.com/img/icon.png" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sidenoteanalytics.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://sidenoteanalytics.com/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "Sessions vs. users vs. views in GA4" }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/site.css?v=3">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLZKFRTD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="SideNote Analytics home">
+      <img class="mark" src="/img/logo.svg" alt="" width="42" height="42">
+      <span>SideNote <span class="brand-soft">Analytics</span></span>
+    </a>
+    <nav class="links" aria-label="Sections"><a href="/">Home</a><a href="/guides/">Guides</a></nav>
+  </div>
+</header>
+
+<main class="wrap doc guide">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/guides/">Guides</a></nav>
+  <article>
+    <h1>Sessions vs. users vs. views in GA4</h1>
+    <p class="updated">Updated <time datetime="2026-11-23">November 23, 2026</time> · 5 min read</p>
+
+    <div class="short">
+      <p><b>In short:</b> Views count pages seen, sessions count visits and users count people. Views add up across pages; sessions and users do not, because one visit or person is counted on every page they touched. Use the <b>Landing page</b> report when you need session counts that add up.</p>
+    </div>
+
+    <p>In GA4, <b>views</b> count pages seen, <b>sessions</b> count visits, and <b>users</b> count people. One person who visits your site twice in a week and reads three pages each time produces six views, two sessions and one user. The three numbers measure different things, which is why they never match and why they behave differently when you look at a single page.</p>
+    <p>This guide defines each metric as GA4 does, walks through an example, and explains which one to use for common questions.</p>
+
+    <h2>The three definitions</h2>
+    <ul>
+      <li><b>Views</b> are the number of web pages or app screens people saw, counting repeat views of the same page.</li>
+      <li><b>Sessions</b> are periods of activity on your site. A session starts when someone views a page and no session is already active, and by default it ends after 30 minutes without activity. There is no maximum length.</li>
+      <li><b>Users</b> are the people behind the activity. In standard reports, the "Users" figure is <b>Active users</b>: people who had an engaged session or sent engagement time during the date range.</li>
+    </ul>
+    <p>GA4 has a few other user metrics you may see in explorations. <b>Total users</b> counts everyone who triggered any event, engaged or not. <b>New users</b> counts people who visited for the first time in the period. <b>Returning users</b> counts people who had at least one earlier session. Because these are defined differently, new users can occasionally exceed active users for the same period.</p>
+
+    <h2>One visitor, one week</h2>
+    <p>Follow a single visitor, Sam, through a week on a software site:</p>
+    <ul>
+      <li><b>Monday:</b> Sam lands on a blog post from search, then opens the pricing page. That is 2 views and 1 session.</li>
+      <li><b>Wednesday:</b> Sam comes back through a newsletter link, reads the pricing page again, then the features page and the sign-up page. That is 3 views and 1 session.</li>
+      <li><b>Wednesday, an hour later:</b> Sam returns to the open tab and views the sign-up page again. More than 30 minutes have passed, so this starts a new session: 1 view and 1 session.</li>
+    </ul>
+    <p>For the week, Sam contributes 6 views, 3 sessions and 1 user to the site totals. Now look at the pricing page on its own: 2 views, 2 sessions that included it, and 1 user. The pricing page's numbers are smaller, but they do not add up to the site's numbers in a simple way, because the same session and the same person are counted on every page they touched.</p>
+
+    <h2>Why page numbers don't add up</h2>
+    <p>Views are recorded on a single page, so the views of all pages add up to the site's total views. Sessions and users belong to visits and people, not to pages, so they are counted again on every page involved.</p>
+    <p>In practice, this means:</p>
+    <ul>
+      <li>Adding up page-level users will always overstate how many people visited the site.</li>
+      <li>Adding up page-level sessions from an exploration overstates visits in the same way.</li>
+      <li>The <b>Landing page</b> report is the exception for sessions: each session is counted once, on its first page, so those numbers do add up. <a href="/guides/ga4-landing-page-report/">Using the GA4 landing page report</a> covers it in detail.</li>
+    </ul>
+    <p>For a broader explanation of page, session and user scope, see <a href="/guides/how-to-see-ga4-data-for-a-single-page/">How to see GA4 data for a single page</a>.</p>
+
+    <h2>Which metric answers which question</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Question</th><th>Metric</th></tr></thead>
+        <tbody>
+          <tr><td>How much was this page looked at?</td><td>Views</td></tr>
+          <tr><td>How many visits did this page bring in?</td><td>Sessions in the Landing page report</td></tr>
+          <tr><td>How many people saw this page?</td><td>Active users in Pages and screens</td></tr>
+          <tr><td>Do people come back to it?</td><td>Views per active user</td></tr>
+          <tr><td>How many visits did the whole site get?</td><td>Sessions in Traffic acquisition</td></tr>
+          <tr><td>How many people did the whole site reach?</td><td>Active users in Reports snapshot or User acquisition</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Ratios that tell you more</h2>
+    <p>The relationships between the three metrics are often more useful than any one of them:</p>
+    <ul>
+      <li><b>Views per active user</b>, shown in Pages and screens, rises when people return to a page or reload it. A high figure on a reference page is a good sign. On a sign-up page, it may mean people are getting stuck.</li>
+      <li><b>Sessions per user</b> indicates how often people come back to the site within the period. You can calculate it from Sessions and Active users in the same report.</li>
+      <li><b>Views per session</b> shows how many pages a typical visit includes. A sudden drop after a navigation change is worth investigating.</li>
+    </ul>
+
+    <h2>Things that change the counts</h2>
+    <p>A few settings and behaviors affect these numbers without any change in real traffic:</p>
+    <ul>
+      <li><b>Session timeout.</b> The 30-minute default can be changed in <b>Admin &gt; Data streams</b> under <b>Configure tag settings</b>. A longer timeout produces fewer, longer sessions.</li>
+      <li><b>Devices and browsers.</b> GA4 identifies users by browser by default. Someone who visits on a phone and a laptop usually counts as two users unless your site sends a user ID for signed-in visitors.</li>
+      <li><b>Consent and blockers.</b> Visitors who decline analytics cookies or block the tag are missing from all three metrics in standard reports, unless your property qualifies for modeled data.</li>
+    </ul>
+
+    <h2>Seeing all three for the page you are on</h2>
+    <p>SideNote Analytics shows views, users and sessions for the current page in Chrome's side panel, each compared with the previous period, so you can see at a glance which of the three has moved.</p>
+
+    <h2>Common questions</h2>
+    <h3>Why does my page have more sessions than users?</h3>
+    <p>Some people visited the page in more than one session during the period. Each visit is a session, but the person is counted once.</p>
+    <h3>Why does my page have more users than sessions?</h3>
+    <p>This is unusual for a single page and is usually caused by comparing figures from different reports or scopes. Check that both numbers come from the same report and date range.</p>
+    <h3>Does a session restart at midnight?</h3>
+    <p>Google's documentation on sessions describes the inactivity timeout but does not list midnight as a reason a session ends, so do not plan reports around it. If a precise answer matters for your property, compare session counts around midnight in an exploration.</p>
+
+    <aside class="try" aria-label="SideNote Analytics">
+      <p class="eyebrow">Free Chrome extension</p>
+      <p><b>See a page's GA4 numbers without leaving the page.</b> SideNote Analytics opens the page's sessions, users, engagement and traffic sources in Chrome's side panel, compared with the previous period.</p>
+      <a class="btn primary" href="https://chromewebstore.google.com/detail/sidenote-analytics/bgmgjefpcplopncgohninfdddjmldfml?utm_source=sidenoteanalytics.com&amp;utm_medium=guide&amp;utm_campaign=ga4-sessions-vs-users" data-track="store_click" rel="noopener">Add to Chrome</a>
+    </aside>
+
+    <section class="related" aria-label="More guides">
+      <h2>More guides</h2>
+      <ul>
+        <li><a href="/guides/how-to-see-ga4-data-for-a-single-page/">How to see GA4 data for a single page</a></li>
+        <li><a href="/guides/ga4-landing-page-report/">Using the GA4 landing page report</a></li>
+        <li><a href="/guides/">All guides</a></li>
+      </ul>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="sign">SideNote <span class="brand-soft">Analytics</span></span>
+    <p>Questions or feedback? <a href="https://www.linkedin.com/in/veyselm" rel="noopener">Reach out on LinkedIn</a>. Not affiliated with Google. <a href="/guides/">Guides</a> · <a href="/support.html">Support</a> · <a href="/privacy.html">Privacy</a> · <button type="button" class="link-btn" data-cookie-settings>Cookie settings</button></p>
+  </div>
+</footer>
+
+<script src="/consent.js?v=5"></script>
+<!-- Cloudflare Web Analytics: cookieless visit counts, independent of consent --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "324d076cd57149ae91cb1d8261f0ad9f"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
